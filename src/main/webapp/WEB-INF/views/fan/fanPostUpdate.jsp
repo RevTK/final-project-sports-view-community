@@ -69,9 +69,12 @@
 						<form action="fan.update.do" method="POST"
 							onsubmit="return checkForm2()" enctype="multipart/form-data"
 							name="postRegForm">
+							
 							<input type="hidden" name="post_category"
 								value="${post.post_category}"> <input type="hidden"
-								name="post_id" value="${post.post_id}">
+								name="post_id" value="${post.post_id}"> <input type="hidden"
+								name="post_board" value="${post.post_board}">
+								
 							<div class="form-group">
 								<select name="post_category" id="post_category">
 									<option value="4">카테고리</option>

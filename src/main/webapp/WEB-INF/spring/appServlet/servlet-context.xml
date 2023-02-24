@@ -94,5 +94,17 @@
 	<beans:bean id="bo" class="com.tm.nmp.board.BoardOption">
 		<beans:constructor-arg value="12"></beans:constructor-arg>
 	</beans:bean>
-
+	<beans:bean id="boardNumberList" class="com.tm.nmp.board.BoardNumberList">
+		<beans:constructor-arg>
+			<beans:list value-type="java.lang.Integer">
+				<beans:value>11</beans:value><!-- review 게시판 -->
+				<beans:value>12</beans:value><!-- withGo 게시판 -->
+				<beans:value>21</beans:value><!-- theFan - baseball 게시판 -->
+				<beans:value>22</beans:value><!-- theFan - soccer 게시판 -->
+				<beans:value>23</beans:value><!-- theFan - basketball 게시판 -->
+				<beans:value>24</beans:value><!-- theFan - volleyball 게시판 -->
+				<beans:value>31</beans:value><!-- clubEvent 게시판 -->
+			</beans:list>
+		</beans:constructor-arg>
+	</beans:bean>
 </beans:beans>

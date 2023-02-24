@@ -27,8 +27,7 @@ public class ClubEventController {
 	public String clubEventBoardGO(HttpServletRequest req, PostVO p) {
 		TokenMaker.make(req);
 		acDAO.loginCheck(req);
-		
-		brDAO.getAllPost(req, 1, 31, p);
+		brDAO.getAllPost(req, 1, p);
 
 		req.setAttribute("contentPage", "clubEvent/clubEventBoard.jsp");
 		return "index";
@@ -62,7 +61,7 @@ public class ClubEventController {
 		TokenMaker.make(req);
 		acDAO.loginCheck(req);
 		brDAO.regPost(req, p);
-		brDAO.getAllPost(req, 1, 31, p);
+		brDAO.getAllPost(req, 1, p);
 		req.setAttribute("contentPage", "clubEvent/clubEventBoard.jsp");
 		return "index";
 	}
@@ -83,7 +82,7 @@ public class ClubEventController {
 		if (acDAO.loginCheck(req)) {
 			brDAO.updatePost(req, p);
 		}
-		brDAO.getAllPost(req, 1, 31, p);
+		brDAO.getAllPost(req, 1, p);
 		req.setAttribute("contentPage", "clubEvent/clubEventBoard.jsp");
 		return "index";
 	}
@@ -95,7 +94,7 @@ public class ClubEventController {
 		if (acDAO.loginCheck(req)) {
 			brDAO.deletePost(req, p);
 		}
-		brDAO.getAllPost(req, 1, 31, p);
+		brDAO.getAllPost(req, 1, p);
 		req.setAttribute("contentPage", "clubEvent/clubEventBoard.jsp");
 		return "index";
 	}
@@ -106,7 +105,7 @@ public class ClubEventController {
 		acDAO.wathingPage(req);
 		acDAO.loginCheck(req);
 		int pg = Integer.parseInt(req.getParameter("pg"));
-		brDAO.getAllPost(req, pg, 31, p);
+		brDAO.getAllPost(req, pg, p);
 		req.setAttribute("contentPage", "clubEvent/clubEventBoard.jsp");
 		return "index";
 	}
@@ -115,7 +114,7 @@ public class ClubEventController {
 	public String clubEventSearchDo(HttpServletRequest req, BoardSelector bSel, PostVO p) {
 		acDAO.loginCheck(req);
 		brDAO.searchPost(req, bSel);
-		brDAO.getAllPost(req, 1, 31, p);
+		brDAO.getAllPost(req, 1, p);
 		req.setAttribute("contentPage", "clubEvent/clubEventBoard.jsp");
 		return "index";
 	}

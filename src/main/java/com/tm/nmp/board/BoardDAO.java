@@ -1,5 +1,6 @@
 package com.tm.nmp.board;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
@@ -11,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tm.nmp.account.AccountDTO;
-import com.tm.nmp.board.PostVO;
 
 @Service
 public class BoardDAO {
@@ -21,6 +21,10 @@ public class BoardDAO {
 
 	@Autowired
 	private BoardOption bo;
+
+	@Autowired
+	// 게시판 번호리스트
+	private BoardNumberList boardNumberList; 
 
 	private int allPostCount;
 
@@ -32,33 +36,29 @@ public class BoardDAO {
 		this.allPostCount = allPostCount;
 	}
 
-	BoardNumberList boardNumberList = new BoardNumberList(); // 게시판 번호리스트
+	// 각 게시판별 총 게시물 수 저장
+	private HashMap<Integer, Integer> totalPost = new HashMap<>();
 	
-	// 여기도 수정 예정
-	private int[] calcBoard = new int[boardNumberList.getTotalBoard()];
-	private int board_array_number; // 게시판들 순서
-
 	public void calcAllPostCount() {
-		for(int i = 0; i < boardNumberList.getTotalBoard(); i++) {
-			BoardSelector bs = new BoardSelector("", 0, 0, boardNumberList.getBoardNumberList()[i]); 
-			calcBoard[i] = ss.getMapper(BoardMapper.class).calcAllPostCount(bs);
-			System.out.println(calcBoard[i]); // 각 게시판별 총 게시글 수
+		boardNumberList.showNumberList();
+		for(int boardNumberList : boardNumberList.getBoardNumberList()) {
+			System.out.println("게시판 번호 : " + boardNumberList);
+			BoardSelector bs = new BoardSelector("", 0, 0, boardNumberList);
+			totalPost.put(boardNumberList, ss.getMapper(BoardMapper.class).calcAllPostCount(bs));
+			System.out.println(boardNumberList + " 게시글수 : " + totalPost.get(boardNumberList));
 		}
 	}
 
-	public void getAllPost(HttpServletRequest req, int pageNbr, int post_board, PostVO p) {
+	public void getAllPost(HttpServletRequest req, int pageNbr, PostVO p) {
+		
+		int post_board = p.getPost_board();
+		System.out.println("게시판 번호 : " + post_board);
 
-		for(int i = 0; i < boardNumberList.getTotalBoard(); i++) {			
-			if(boardNumberList.getBoardNumberList()[i] == post_board) {
-				board_array_number = i;
-				break;
-			}
-		}
-		allPostCount = calcBoard[board_array_number];
-		System.out.println("allPostCount : " + allPostCount);
+		allPostCount = totalPost.get(post_board);
+		System.out.println("게시판 게시글수 : " + allPostCount);
 
-		int count = bo.getCountPerPage();
-		int start = (pageNbr - 1) * count + 1;
+		int count = bo.getCountPerPage(); // 페이지당 보여줄 게시글 수
+		int start = (pageNbr - 1) * count + 1; // 
 		int end = start + (count - 1);
 
 		BoardSelector search = (BoardSelector) req.getSession().getAttribute("search");
@@ -72,7 +72,7 @@ public class BoardDAO {
 			search.setEnd(end);
 			postCount = ss.getMapper(BoardMapper.class).calcAllPostCount(search);
 		}
-		System.out.println("postCount : " + postCount);
+		System.out.println("검색후 게시글 수 : " + postCount);
 		
 		int catNum = p.getPost_category();
 
@@ -115,11 +115,11 @@ public class BoardDAO {
 		req.setAttribute("board_name", board_name);
 
 		List<PostVO> posts = ss.getMapper(BoardMapper.class).getAllPost(search);
-		System.out.println(posts);
+		System.out.println("List<PostVO> posts : " + posts);
 		req.setAttribute("posts", posts);
 
 		int pageCount = (int) Math.ceil(postCount / (double) count);
-		System.out.println("pageCount : " + pageCount);
+		System.out.println("페이지수 : " + pageCount);
 		
 		req.setAttribute("pageCount", pageCount);
 		req.setAttribute("curPage", pageNbr);
@@ -136,11 +136,6 @@ public class BoardDAO {
 	}
 
 	public void regPost(HttpServletRequest req, PostVO p) {
-		/*
-		 * String token = req.getParameter("token"); String successToken = (String)
-		 * req.getSession().getAttribute("successToken"); if
-		 * (token.equals(successToken)) { return; }
-		 */
 
 		AccountDTO ac = (AccountDTO) req.getSession().getAttribute("loginAccount");
 		p.setPost_member(ac.getMember_id());
@@ -168,20 +163,13 @@ public class BoardDAO {
 		}
 
 		// 위 split 내용을 wg_img 컬럼에 set해준 것
-//		p.setPost_content(p_txt.replace("\r\n", "<br>"));
+		// p.setPost_content(p_txt.replace("\r\n", "<br>"));
 
 		int post_board = p.getPost_board();
 		System.out.println(post_board);
 		if (ss.getMapper(BoardMapper.class).regPost(p) == 1) {
 			System.out.println("글 등록 성공");
-			
-			for(int i = 0; i < boardNumberList.getTotalBoard(); i++) {			
-				if(boardNumberList.getBoardNumberList()[i] == post_board) {
-					board_array_number = boardNumberList.getBoardNumberList()[i];
-					break;
-				}
-			}
-			calcBoard[board_array_number]++;
+			totalPost.replace(post_board, totalPost.get(post_board)+1);
 			
 		} else {
 			System.err.println("글 등록 실패");
@@ -222,14 +210,7 @@ public class BoardDAO {
 		System.out.println(post_board);
 		if (ss.getMapper(BoardMapper.class).deletePost(p) == 1) {
 			req.setAttribute("result", "글삭제 성공");
-			
-			for(int i = 0; i < boardNumberList.getTotalBoard(); i++) {			
-				if(boardNumberList.getBoardNumberList()[i] == post_board) {
-					board_array_number = boardNumberList.getBoardNumberList()[i];
-					break;
-				}
-			}
-			calcBoard[board_array_number]--;
+			totalPost.replace(post_board, totalPost.get(post_board)-1);
 			
 		} else {
 			req.setAttribute("result", "글삭제실패");
@@ -367,13 +348,6 @@ public class BoardDAO {
 
 			ss.getMapper(BoardMapper.class).postCountUpdate(p);
 		}
-
-		/*
-		 * if(ss.getMapper(BoardMapper.class).postCountUpdate(p) == 1) {
-		 * req.setAttribute("result", "조회수 성공"); }else { req.setAttribute("result",
-		 * "조회수 실패"); }
-		 */
-
 	}
 
 	public void likeUp(HttpServletRequest req, LikeVO lk) {

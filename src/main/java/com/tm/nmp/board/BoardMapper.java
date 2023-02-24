@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface BoardMapper {
 
-	int calcAllPostCount(BoardSelector bSel);
+	int calcAllPostCount(BoardSelector bs);
 
 	List<PostVO> getAllPost(BoardSelector search);
 

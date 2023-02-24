@@ -146,6 +146,8 @@
 						<hr style="background: #f0f0f0; height: 0.5px; border: 0;">
 					</c:forEach>
 				</div>
+					
+				<!-- 페이징 -->
 				<div class="board__bot-paging">
 					<c:if test="${curPage != 1}">
 						<span><span style="cursor: pointer"
@@ -171,6 +173,7 @@
 		</div>
 	</div>
 	</main>
+	
 	<script>
 		const srFan = ScrollReveal({
 			origin : 'right',
