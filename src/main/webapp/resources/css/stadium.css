@@ -12,6 +12,10 @@
 	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+.stadiumDetail__container {
+	    margin-bottom: 5vh;
+}
+
 #stadium__area{
 	margin-right: 5vw;
 }

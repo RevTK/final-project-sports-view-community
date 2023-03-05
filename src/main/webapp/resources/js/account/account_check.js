@@ -1,20 +1,3 @@
-/*function searchPw() {
- let email = $('#search_ac_email').val();
- let inputNum = $(this).val();
- if (inputNum == $('#valid').val()) {
- alert('인증 번호가 성공적으로 인증되었습니다.');
- let id = $('#search_ac_id').val();
- console.log(email);
- console.log(inputNum);
- console.log(id);
- return true;
- } else {
- alert('인증 번호가 일치하지 않습니다.');
- return false;
- }
-
- }*/
-
 function checkId() {
 	var id = $('#idInput').val(); // id값이 "idInput"인 입력란의 값을 저장
 	$.ajax({
@@ -96,7 +79,7 @@ function checkReg() {
 	}
 	
 	if (inputNum == $('#valid').val()) {
-		alert('인증 번호가 성공적으로 인증되었습니다.');
+		alert('가입을 환영합니다');
 	} else {
 		alert('인증 번호가 일치하지 않습니다.');
 		return false;
@@ -106,16 +89,6 @@ function checkReg() {
 		alert("좋아하는 구단을 선택해주세요");
 		return false;
 	}
-
-
-	/*if ($("#idConfirm").val() == 1) {
-		return true;
-	} else {
-		alert("아이디 중복여부를 확인해주세요");
-		id.focus();
-		return false;
-	}*/
-	
 	return true;
 
 };
@@ -175,15 +148,6 @@ $(function() {
 	});
 });
 
-/*
- * $(function() { $('#email_check').click(function() { let email =
- * $('#search_ac_email').val(); console.log(email); let checkNum =
- * $('#email_num');
- * 
- * $.ajax({ url : "email.check.do", type : "GET", dataType : "text", data : {
- * "ac_email" : email }, success : function(data) { checkNum.attr('disabled',
- * false); $('#valid').val(data); alert('인증번호가 전송되었습니다.') } }); }); });
- */
 
 function changePw() {
 	let pw = $('#change-pw-pw').val();

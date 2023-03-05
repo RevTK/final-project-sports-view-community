@@ -99,7 +99,7 @@
 										새글쓰기</button>
 								</c:when>
 								<c:otherwise>
-									<a href="fan.reg.go?post_board=${param.post_board}"
+									<a  class="action-button" href="fan.reg.go?post_board=${param.post_board}"
 										onclick="alert('로그인하세요')">새글쓰기</a>
 								</c:otherwise>
 							</c:choose>

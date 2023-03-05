@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +15,6 @@
 	<br>
 	<br>
 	<br>
-	<span>아래 경기장 좌석을 클릭하여 상세 전경을 감상해보세요</span>
 	<div id="start"
 		style="position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 1000px; height: 1000px;">
 		<div style="display: inline-block; align-items: flex-start;">
@@ -30,8 +31,19 @@
 				<area style="cursor: pointer;" class="imgArea" id="6"
 					coords="-1,561,1023,795" shape="rect">
 			</map>
-			<button id="reserveBtn">예매하러 가기</button><button onclick="with_go_write_go()">같이 보러 가기</button>
-			<br><br><br>
+			<button class="action-button" id="reserveBtn">예매하는 곳으로</button>
+			<c:choose>
+				<c:when test="${sessionScope.loginAccount ne null}">
+					<button class="action-button"
+						onclick="location.href='withGo.reg.go?post_board=11'">
+						같이보기 글쓰기</button>
+				</c:when>
+				<c:otherwise>
+					<button class="action-button" onclick="alert('로그인하세요')">같이보기
+						글쓰기</button>
+				</c:otherwise>
+			</c:choose>
+			<br> <br> <br>
 			<!-- map div -->
 			<div id="map"
 				style="margin: 20px 0px 15px 0px; width: 800px; height: 500px;"></div>
@@ -47,6 +59,16 @@
 			src="resources/final_img_file/baseball/seating_chart/${seatDetail }/test_12.jpg">
 	</div>
 	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+		<br>
+	<br>
+	<br>
+	<br>
+	<br>	<br>
 	<br>
 	<br>
 	<br>
@@ -78,13 +100,17 @@
 	</script>
 	<!-- 전경 -->
 	<script type="text/javascript">
-		$('.imgArea').click(function() {
-			let areaId = $(this).attr("id");
-			let urlParams = new URL(location.href).searchParams;
-			let team = urlParams.get('team');
-			let imgName = "test_" + areaId + ".jpg";
-			window.open("resources/final_img_file/baseball/seating_chart/"+team+"/"+imgName,"teamImg","left=380px, height=800px, width=750px");
-		});
+		$('.imgArea').click(
+				function() {
+					let areaId = $(this).attr("id");
+					let urlParams = new URL(location.href).searchParams;
+					let team = urlParams.get('team');
+					let imgName = "test_" + areaId + ".jpg";
+					window.open(
+							"resources/final_img_file/baseball/seating_chart/"
+									+ team + "/" + imgName, "teamImg",
+							"left=380px, height=800px, width=750px");
+				});
 
 		/*$(".imgArea").mouseover(function() {
 		 let areaId = $(this).attr("id");

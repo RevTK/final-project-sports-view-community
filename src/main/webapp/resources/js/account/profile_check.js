@@ -55,7 +55,7 @@ $(function() {
 	$("#pwInput2").keyup(function() {
 		if ($("#pwInput").val() != $("#pwInput2").val()) {
 			$("#pwConfirm").html("비밀번호 일치하지 않음<br><br>");
-			$("#pwConfirm").css("color", "#6A82FB")
+			$("#pwConfirm").css("color", "##ff0000")
 			$("#reg").attr("disabled", true);
 		} else {
 			$("#pwConfirm").html("비밀번호 일치함<br><br>");

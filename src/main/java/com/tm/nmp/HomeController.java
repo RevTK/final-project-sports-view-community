@@ -32,7 +32,6 @@ public class HomeController {
 			brDAO.calcAllPostCount();
 			firstReq = false;
 		}
-
 		acDAO.wathingPage(req);
 		acDAO.loginCheck(req);
 		req.setAttribute("contentPage", "home.jsp");

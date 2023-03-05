@@ -13,20 +13,20 @@ function stadium_map() {
 	basketballSetVal();
 	volleyballSetVal();
 	
-	var mapContainer = document.getElementById('map'), mapOption = {
+	let mapContainer = document.getElementById('map'), mapOption = {
 		center : new kakao.maps.LatLng(lat, lon),
 		level : 3
 	};
-	var map = new kakao.maps.Map(mapContainer, mapOption);
-	var markerPosition = new kakao.maps.LatLng(lat, lon);
-	var marker = new kakao.maps.Marker({
+	let map = new kakao.maps.Map(mapContainer, mapOption);
+	let markerPosition = new kakao.maps.LatLng(lat, lon);
+	let marker = new kakao.maps.Marker({
 		position : markerPosition
 	});
 	marker.setMap(map);
 	iwContent;
 	iwPosition = new kakao.maps.LatLng(lat, lon);
 	iwRemoveable = true;
-	var infowindow = new kakao.maps.InfoWindow({
+	let infowindow = new kakao.maps.InfoWindow({
 		position : iwPosition,
 		content : iwContent,
 		removable : iwRemoveable

@@ -17,21 +17,24 @@
 	<br>
 	<br>
 	<br>
-	
-	<div  class="news__bg-left" style="float: left; position: absolute; left: -14%;">
-		<img src="resources/files/backgroundImg/baseball1.png">
+	<div class="news__bg-left"
+		style="float: left; position: absolute; left: -9%;">
+		<img src="resources/files/backgroundImg/eventImg1.png">
 	</div>
-	<div  class="news__bg-right" style="float: right; position: absolute; top: 400px; left: 66%;">
+	<div class="news__bg-right"
+		style="float: right; position: absolute; top: 400px; left: 66%;">
 		<img src="resources/files/backgroundImg/eventImg2.png">
 	</div>
-	
 	<div class="nav__menu" id="nav-menu" style="width: 59%; align: center;">
-		<ul class="nav__list">
-			<li class="nav__item"><a href='news.soccer.go'>축구</a></li>
+		<ul class="nav__list" id="news-nav">
+			<li class="nav__item"><a class="nav__link" href='news.soccer.go'>축구</a></li>
 
-			<li class="nav__item"><a href='news.baseball.go'>야구</a></li>
-			<li class="nav__item"><a href='news.basketball.go'>농구</a></li>
-			<li class="nav__item"><a href='news.volleyball.go'>배구 </a></li>
+			<li class="nav__item"><a class="nav__link"
+				href='news.baseball.go'>야구</a></li>
+			<li class="nav__item"><a class="nav__link"
+				href='news.basketball.go'>농구</a></li>
+			<li class="nav__item"><a class="nav__link"
+				href='news.volleyball.go'>배구 </a></li>
 		</ul>
 	</div>
 	<br>
@@ -89,7 +92,7 @@
 					})
 		}
 	</script>
-		<script>
+	<script>
 		/*=============== 스크롤 나타나는 효과 ===============*/
 		const srNewsB = ScrollReveal({
 			origin : 'right',
@@ -98,8 +101,12 @@
 			delay : 200
 		//reset: true, // 애니메이션은 반복
 		})
-		srNewsB.reveal(`.news__bg-left`, {origin : 'left'});
-		srNewsB.reveal(`.div_news_content, .news__bg-right`, {origin : 'right'});
+		srNewsB.reveal(`.news__bg-left`, {
+			origin : 'left'
+		});
+		srNewsB.reveal(`.div_news_content, .news__bg-right`, {
+			origin : 'right'
+		});
 	</script>
 </body>
 </html>

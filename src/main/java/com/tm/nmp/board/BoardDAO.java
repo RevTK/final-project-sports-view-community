@@ -25,9 +25,10 @@ public class BoardDAO {
 	@Autowired
 	// 게시판 번호리스트
 	private BoardNumberList boardNumberList; 
-
+	
+	// 게시판별 전체 게시글 수
 	private int allPostCount;
-
+	
 	public int getAllPostCount() {
 		return allPostCount;
 	}
@@ -36,7 +37,7 @@ public class BoardDAO {
 		this.allPostCount = allPostCount;
 	}
 
-	// 각 게시판별 총 게시물 수 저장
+	// 각 게시판별 총 게시물 수 저장하는 Map통
 	private HashMap<Integer, Integer> totalPost = new HashMap<>();
 	
 	public void calcAllPostCount() {
@@ -164,7 +165,6 @@ public class BoardDAO {
 
 		// 위 split 내용을 wg_img 컬럼에 set해준 것
 		// p.setPost_content(p_txt.replace("\r\n", "<br>"));
-
 		int post_board = p.getPost_board();
 		System.out.println(post_board);
 		if (ss.getMapper(BoardMapper.class).regPost(p) == 1) {
@@ -261,7 +261,6 @@ public class BoardDAO {
 			return resultVO;
 		}
 		return resultVO;
-
 	}
 
 	public int deleteReply(HttpServletRequest req, ReplyVO rp) {

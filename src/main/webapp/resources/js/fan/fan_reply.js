@@ -67,13 +67,12 @@ $('.reply__reg-btn').click(function() {
 						</div>						
 						<div class="reply__content">${reply.reply_content}</div>
 					</div>`;
-					
 				$('.reply__list').prepend(replyContent);
 
 				} else {
 					console.log('댓글 등록 실패');
 				}
-				$('.reply__content').val('');
+				$('.reply__content-reg').val('');
 			},
 			error : function(){
 			alert('통신 실패');

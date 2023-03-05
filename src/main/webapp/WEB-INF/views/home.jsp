@@ -7,7 +7,6 @@
 <title>SightSite</title>
 <link rel="stylesheet"
 	href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
 <script
@@ -50,8 +49,7 @@
 					<span>Team Miracle Project</span>
 					<h1>TEAM MIRACLE</h1>
 
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-						do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<p>경기를 관람하러 가기전 어느 좌석에서 보면 어떤 뷰일지 궁금했습니다</p>
 
 					<a href="#" role="button"> Let's go </a>
 				</div>
@@ -70,8 +68,7 @@
 					<span>Team Miracle Project</span>
 					<h1>Project for Fan</h1>
 
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-						do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<p>직접 관람하며 촬영한 사진을  서로 공유하는 커뮤니티 공간을 마련했습니다</p>
 
 					<a href="#" role="button"> Let's go </a>
 				</div>
@@ -90,8 +87,7 @@
 					<span>Team Miracle Project</span>
 					<h1>Well thought out</h1>
 
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-						do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<p>서로 후기를 공유하고 같은 팀 팬끼리 함께 관람하러 갈 수 있습니다</p>
 
 					<a href="#" role="button"> Let's go </a>
 				</div>
@@ -110,8 +106,7 @@
 					<span>Team Miracle Project</span>
 					<h1>We Never Give Up</h1>
 
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-						do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<p>뉴스와 구단 이벤트를 접하며 구단과 소통할 수 있는 장을 마련했습니다</p>
 
 					<a href="#" role="button"> Let's go </a>
 				</div>
@@ -130,8 +125,7 @@
 					<span>Team Miracle Project</span>
 					<h1>Don't Stop Now</h1>
 
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-						do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<p>스포츠 팬들의 자유로운 소통과 정보 교환을 통하여 건전한 팬 문화를 만들어 나가겠습니다</p>
 
 					<a href="#" role="button"> Let's go </a>
 				</div>
@@ -140,7 +134,7 @@
 		</section>
 	</div>
 
-<!--==================== ABOUT US (사이트 간단설명 섹션)====================-->
+	<!--==================== ABOUT US (사이트 간단설명 섹션)====================-->
 	<section class="about section" id="about">
 		<div class="about__container container grid">
 			<div class="about__data">
@@ -175,8 +169,8 @@
 		<div class="popular__container container grid">
 
 			<article class="popular__card">
-				<img src="resources/files/home/popular-review1.jpg" alt="popular image"
-					class="popular__img">
+				<img src="resources/files/home/popular-review1.jpg"
+					alt="popular image" class="popular__img">
 				<h3 class="popular__name">우승을 보다 ㅠ</h3>
 				<span class="popular__description">임형규님의 후기</span> <span
 					class="popular__price">10.09만 뷰</span>
@@ -184,7 +178,7 @@
 					<i class="ri-star-line"></i>
 				</button>
 			</article>
-			
+
 			<article class="popular__card">
 				<img src="resources/files/home/popular-review2.png"
 					alt="popular image" class="popular__img">
@@ -207,8 +201,8 @@
 				</button>
 			</article>
 		</div>
-					<img src="resources/files/home/leaf-branch-4.png" alt="home image"
-				class="home__leaf-2">
+		<img src="resources/files/home/leaf-branch-4.png" alt="home image"
+			class="home__leaf-2">
 	</section>
 
 

@@ -6,19 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<script type="text/javascript">
-	//<![CDATA[
-	$(document).ready(function() {
-		$('.bxslider').bxSlider({
-			auto : true,
-			pause : 2000,
-			autoHover : true,
-			slideWidth : 800,
-			slideMargin : 5,
-		});
-	});
-	//]]>
-</script>
 <body>
 	<div class="stadiumMain__container">
 			<p class="stadiumMain__header">오늘은 어떤 스포츠를 즐길까요?</p>
@@ -85,7 +72,6 @@
 			</div>
 		</div>
 	</div>
-
 
 	<script>
 		/*=============== 스크롤 나타나는 효과 ===============*/

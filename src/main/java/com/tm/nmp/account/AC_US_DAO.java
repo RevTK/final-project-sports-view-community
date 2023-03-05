@@ -94,7 +94,7 @@ public class AC_US_DAO {
 		int checknum = random.nextInt(888888) + 111111;
 
 		// 이메일 보낼 양식
-		String setFrom = "frvlv@naver.com";
+		String setFrom = "ohlyone@naver.com";
 		String toMail = member_email;
 		String title = "비밀번호 인증 이메일 입니다.";
 		String content = "인증번호는 " + checknum + " 입니다.";
@@ -120,7 +120,7 @@ public class AC_US_DAO {
 		int checknum = random.nextInt(888888) + 111111;
 
 		// 이메일 보낼 양식
-		String setFrom = "frvlv@naver.com";
+		String setFrom = "ohlyone@naver.com";
 		String toMail = ac_email;
 		String title = "비밀번호 인증 이메일 입니다.";
 		String content = "인증번호는 " + checknum + " 입니다.";

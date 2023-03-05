@@ -37,8 +37,7 @@ public class ReviewController {
 		acDAO.wathingPage(req);
 		acDAO.loginCheck(req);
 		BoardOption.clearSearch(req);
-		int post_board = Integer.parseInt(req.getParameter("post_board"));
-		brDAO.getAllPost(req, 1, post_board, p); // 1은 첫페이지를 보여달라
+		brDAO.getAllPost(req, 1, p); // 1은 첫페이지를 보여달라
 		req.setAttribute("contentPage", "review/reviewBoard.jsp");
 		return "index";
 	}
@@ -72,8 +71,7 @@ public class ReviewController {
 
 			// 등록후에는 그 게시판 전체글을 보여줄것이라서
 			BoardOption.clearSearch(req);
-			int post_board = Integer.parseInt(req.getParameter("post_board"));
-			brDAO.getAllPost(req, 1, post_board, p);
+			brDAO.getAllPost(req, 1, p);
 			req.setAttribute("contentPage", "review/reviewBoard.jsp");
 		} else {
 			req.setAttribute("contentPage", "account/loginPage.jsp");
@@ -134,8 +132,7 @@ public class ReviewController {
 
 			// 삭제후 전체글 조회
 			BoardOption.clearSearch(req);
-			int post_board = Integer.parseInt(req.getParameter("post_board"));
-			brDAO.getAllPost(req, 1, post_board, p);
+			brDAO.getAllPost(req, 1, p);
 			req.setAttribute("contentPage", "review/reviewBoard.jsp");
 		} else {
 			req.setAttribute("contentPage", "account/loginPage.jsp");
@@ -151,8 +148,7 @@ public class ReviewController {
 
 		// 그 게시판에 해당하는 결과를 도출하기 위해 post_board가 필요
 		int pg = Integer.parseInt(req.getParameter("pg"));
-		int post_board = Integer.parseInt(req.getParameter("post_board"));
-		brDAO.getAllPost(req, pg, post_board, p);
+		brDAO.getAllPost(req, pg, p);
 		req.setAttribute("contentPage", "review/reviewBoard.jsp");
 		return "index";
 	}
@@ -163,9 +159,7 @@ public class ReviewController {
 		// BoardSelector안에 post_board가 들어있으니 따로 넘겨줄 필요는 없다
 		brDAO.searchPost(req, bSel);
 
-		// 위와 달리 검색후 보여주는 페이지에선 post_board필요하다
-		int post_board = Integer.parseInt(req.getParameter("post_board"));
-		brDAO.getAllPost(req, 1, post_board, p);
+		brDAO.getAllPost(req, 1, p);
 		req.setAttribute("contentPage", "review/reviewBoard.jsp");
 		return "index";
 	}

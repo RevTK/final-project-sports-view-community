@@ -33,7 +33,7 @@
 							새글쓰기</button>
 					</c:when>
 					<c:otherwise>
-						<a href="review.reg.go?post_board=${param.post_board}"
+						<a  class="action-button" href="review.reg.go?post_board=${param.post_board}"
 							onclick="alert('로그인하세요')">새글쓰기</a>
 					</c:otherwise>
 				</c:choose>
@@ -58,11 +58,9 @@
 						<div class="review__title">야구 리뷰 제목</div>
 						<div class="review__member">by 김태형</div>
 						<div class="rate">
-							<span class="review__voters">1.987 voters</span>
+							<span class="review__voters">1.987 추천</span>
 						</div>
-						<div class="review__sum">Readers of all ages and walks of
-							life have drawn inspiration and empowerment from Elizabeth
-							Gilbert’s books for years.</div>
+						<div class="review__sum">지난주에 야구를 보러 다녀왔어요!! 두번째 가보는데 확실히 처음에 가봤던 느낌대로 확 트인 경기장에서 생각보다 많은 관중에 놀랐습니다</div>
 						<div class="review__see">리뷰보기</div>
 					</div>
 				</div>
@@ -79,11 +77,9 @@
 						<div class="review__title">축구 리뷰 제목</div>
 						<div class="review__member">by 임형규</div>
 						<div class="rate">
-							<span class="review__voters">1.987 voters</span>
+							<span class="review__voters">1.987 추천</span>
 						</div>
-						<div class="review__sum">The hunt for each splinter of
-							Paul's soul sends Marguerite racing through a war-torn San
-							Francisco.</div>
+						<div class="review__sum">오늘도 홈경기 직관하고 왔습니다. 시즌권을 사놓으니까 정멀 편하네여ㅋㅋ 선수 연습사진부터 뿌릴게요 ㅋㅋ</div>
 						<div class="review__see review-blue">리뷰보기</div>
 					</div>
 				</div>
@@ -101,9 +97,7 @@
 						<div class="rate">
 							<span class="review__voters">1.987 voters</span>
 						</div>
-						<div class="review__sum">The Great Gatsby, F. Scott
-							Fitzgerald’s third book, stands as the supreme achievement of his
-							career.</div>
+						<div class="review__sum">가장 좋아하는 선수가 부상복귀한다고 해서 바로 직관갔습니다~ 경기는 아시다시피 지긴했는데.. 그래도 보고싶던 선수 만나서 사인받고 좋았네요</div>
 						<div class="review__see review-purple">리뷰보기</div>
 					</div>
 				</div>
@@ -121,9 +115,7 @@
 						<div class="rate">
 							<span class="review__voters">1.987 voters</span>
 						</div>
-						<div class="review__sum">Louisa Clark is no longer just an
-							ordinary girl living an ordinary life. After the transformative
-							six months spent.</div>
+						<div class="review__sum">맨날 제가 직관가면 지기만 했었는데 오늘 드디어 이겼어요 ㅠㅠ 감동 ㄷㄷ 선수들 너무 친절하네요</div>
 						<div class="review__see review-yellow">리뷰보기</div>
 					</div>
 				</div>

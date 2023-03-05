@@ -69,8 +69,8 @@
 		class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<beans:property name="host" value="smtp.naver.com" />
 		<beans:property name="port" value="465" />
-		<beans:property name="username" value="frvlv" />
-		<beans:property name="password" value="Dlagudrb1!!" />
+		<beans:property name="username" value="ohlyone@naver.com" />
+		<beans:property name="password" value="@" />
 
 		<!-- 보안연결 SSL과 관련된 설정 -->
 		<beans:property name="javaMailProperties">
@@ -91,9 +91,13 @@
 		<beans:property name="maxUploadSize" value="52428800" />
 		<beans:property name="maxInMemorySize" value="10485760" />
 	</beans:bean>
+	
+	<!-- 게시판마다 한페이지별 보여줄 게시물 수  -->
 	<beans:bean id="bo" class="com.tm.nmp.board.BoardOption">
 		<beans:constructor-arg value="12"></beans:constructor-arg>
 	</beans:bean>
+	
+	<!-- 게시판별 id -->
 	<beans:bean id="boardNumberList" class="com.tm.nmp.board.BoardNumberList">
 		<beans:constructor-arg>
 			<beans:list value-type="java.lang.Integer">

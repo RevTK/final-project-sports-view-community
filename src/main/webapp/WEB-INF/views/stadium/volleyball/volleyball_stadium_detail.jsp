@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +31,18 @@
 				<area style="cursor: pointer;" class="imgArea" id="6"
 					coords="-1,561,1023,795" shape="rect">
 			</map>
-			<button id="reserveBtn">예매하러 가기</button><button onclick="with_go_write_go()">같이 보러 가기</button>
+			<button class="action-button" id="reserveBtn">예매하는 곳으로</button>
+			<c:choose>
+				<c:when test="${sessionScope.loginAccount ne null}">
+					<button class="action-button"
+						onclick="location.href='withGo.reg.go?post_board=11'">
+						같이보기 글쓰기</button>
+				</c:when>
+				<c:otherwise>
+						<button class="action-button"
+							onclick="alert('로그인하세요')">같이보기 글쓰기</button>
+				</c:otherwise>
+			</c:choose>
 			<br><br><br>
 			<!-- map div -->
 			<div id="map"

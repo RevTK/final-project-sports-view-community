@@ -21,7 +21,8 @@
 <!--=============== [CSS CDN]===============-->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css" />
-<!-- 리뷰 게시판 뗴지않고 움직이면 슬라이더가 움직임-->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
 
 <!--=============== [JS CDN] ===============-->
 <script
@@ -29,6 +30,10 @@
 <script src="//cdn.ckeditor.com/4.19.0/full/ckeditor.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/ckeditor/ckeditor.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 
 <!-- --------------- Jquerry --------------- -->
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -54,6 +59,7 @@
 <link rel="stylesheet" href="resources/css/review.css" />
 <link rel="stylesheet" href="resources/css/withGo.css" />
 <link rel="stylesheet" href="resources/css/fan.css">
+<link rel="stylesheet" href="resources/css/myPage.css">
 
 </head>
 
@@ -74,8 +80,6 @@
 					<a class="nav__link"><jsp:include page="${loginPage }"></jsp:include></a>
 				</div>
 			</div>
-
-
 
 			<div class="nav__menu" id="nav-menu">
 				<ul class="nav__list">
@@ -100,8 +104,8 @@
 					<li class="nav__item"><a href="fan.board.go?post_board=21"
 						class="nav__link">THE FAN</a></li>
 
-					<li class="nav__item"><a href="clubEvent.board.go"
-						class="nav__link">EVENT</a></li>
+					<li class="nav__item"><a
+						href="clubEvent.board.go?post_board=31" class="nav__link">EVENT</a></li>
 
 					<li class="nav__item"><a href="news.main.go" class="nav__link">NEWS</a></li>
 				</ul>
@@ -124,13 +128,6 @@
 
 	<br>
 	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-
 	<!--==================== FOOTER ====================-->
 	<footer class="footer">
 		<div class="footer__container container grid">
@@ -224,10 +221,10 @@
 	<!--=============== [JS MEMBER]===============-->
 	<script src="resources/js/account/account_go.js"></script>
 	<script src="resources/js/account/account_condition.js"></script>
-	<script src="resources/js/stadium/seat_detail.js"></script>
 	<script src="resources/js/myPage/myPage.js"></script>
 	<script src="resources/js/news/paging.js"></script>
 	<script src="resources/js/fan/fan_reply.js"></script>
 	<script src="resources/js/fan/fanPost.js"></script>
+
 </body>
 </html>

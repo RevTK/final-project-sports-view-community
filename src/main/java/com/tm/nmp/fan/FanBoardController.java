@@ -186,14 +186,6 @@ public class FanBoardController {
 		TokenMaker.make(req);
 		return brDAO.regReply(req, rp);
 	}
-	/*
-	 * @RequestMapping(value = "fanReply.reg.do", method = RequestMethod.GET) public
-	 * String fanReplyRegDo(HttpServletRequest req, ReplyVO rp, PostVO p) {
-	 * TokenMaker.make(req); if (acDAO.loginCheck(req)) { brDAO.regReply(req, rp); }
-	 * else { req.setAttribute("contentPage", "account/loginPage.jsp"); }
-	 * brDAO.getPost(req, p); req.setAttribute("contentPage",
-	 * "fan/fanPostDetail.jsp"); return "index"; }
-	 */
 
 	@RequestMapping(value = "fanReply.delete.do", method = RequestMethod.GET)
 	public @ResponseBody int fanReplyDelete(HttpServletRequest req, ReplyVO rp) {
